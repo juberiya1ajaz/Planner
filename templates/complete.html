@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+completed
+{% endblock %}
+
+{% block main %}
+
+<div class="section">
+    <table>
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Task</th>
+                <th>Day</th>
+                <th>Task time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- TODO: Loop through the database entries to display them in this table -->
+
+
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task['subject'] }}</td>
+                <td>{{ task['task']}}</td>
+                <td>{{ task['day'] }}</td>
+                <td>{{task.date}}/{{task.month}}</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
