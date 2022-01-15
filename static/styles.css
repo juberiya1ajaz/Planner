@@ -303,10 +303,12 @@ select
 {
   color:red
 }
+
 .btn1:hover
 {
   color:#1a75ff
 }
+
 .btn1,.btn2 
 {
   text-decoration: none;
