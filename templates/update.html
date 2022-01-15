@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block title %}
+Updating a task
+{% endblock %}
+{% block main %}
+<h2>Updating a Task</h2>
+<div class="task">
+    <div class="section">
+        <div class="form-group, mt-4 mb-3">
+            <form action="/update/{{task.task_id}}" class="form" method="POST">
+                {% for task in task %}
+
+                <div class="pt-3">
+                    <input autocomplete="off" autofocus class="form-control" autofocus name="sub" placeholder="Subject"
+                        type="text" value="{{task.subject}}">
+                </div>
+
+                <div class="pt-3"><input autocomplete="off" autofocus class="form-control" autofocus name="task"
+                        placeholder="Task" type="text" value="{{task.task}}">
+                </div>
+
+                <div class="pt-3"><input autocomplete="off" autofocus class="form-control" autofocus name="day"
+                        placeholder="Day" type="text" value="{{task.day}}">
+                </div>
+
+                <div class="pt-3">
+                    <select name="priority" class="form-control">
+                        <option style="color:#212529" disabled selected value>"{{task.priority}}"</option>
+                        <option value='High'>High</option>
+                        <option value='Medium'>Medium</option>
+                        <option value='Normal'>Normal</option>
+                    </select>
+                </div>
+
+                <div class="pt-3"><input autocomplete="off" autofocus class="form-control" autofocus name="date"
+                        placeholder="Date" max="31" min="1" type="number" value="{{task.date}}">
+                </div>
+                <div class="pt-3">
+                    <input autocomplete="off" autofocus class="form-control" autofocus name="month" placeholder="Month"
+                        type="month" value="{{task.month}}">
+                </div>
+
+                {% endfor %}
+
+                <button type="submit" class="btn btn-dark "
+                    onclick="return confirm('Are You Sure Want To Update The Task?')">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
