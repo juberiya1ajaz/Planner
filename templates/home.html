@@ -3,19 +3,6 @@
 Homepage
 {% endblock %}
 {% block body  %}
-
-{% if session.user_id %}
-<div class="w3-container  w3-animate-fading">
-    <div class="jumbotron  rounded">
-            <div id="div_index">
-                    <h1 class="display-4">Start Today!</h1>
-                    Add your task and Get organised.
-                    <br>
-                    <a href="/task"><button type="button" class="b2">Add Task</button></a>
-            </div>
-
-    </div>
-</div>
 <div class="section">
 
     <h2>All Task</h2>
@@ -53,6 +40,6 @@ Homepage
             </tbody>
     </table>
 </div>
-{% else %}
-{% endif %}
+
+
 {% endblock %}
