@@ -14,16 +14,16 @@ Contact Us
          </div>
          <div class="pt-3">
             <label>First Name:</label>
-            <input type="text" class="form-control" placeholder="Enter First name" name="First name">
+            <input type="text" class="form-control" placeholder="Enter First name" name="f_name">
          </div>
          <div class="pt-3">
             <label>Last Name:</label>
-            <input type="text" class="form-control" placeholder="Enter Last name" name="Last name">
+            <input type="text" class="form-control" placeholder="Enter Last name" name="l_name">
          </div>
       </div>
       <div class="pt-4">
          <p class='pt-3 '>Are you a an existing user?</p>
-         <select class="form-control">
+         <select name="user" class="form-control">
             <option disabled selected value>Select Your Answer</option>
             <option value='yes'>Yes</option>
             <option value='no'>No</option>
@@ -31,7 +31,7 @@ Contact Us
       </div>
       <div>
          <p class='pt-3 '>Which option best describes your current role?</p>
-         <select class="form-control">
+         <select name="role" class="form-control">
             <option disabled selected value>Select current role</option>
             <option value='Student'>Student</option>
             <option value='1'>employed</option>
@@ -48,7 +48,7 @@ Contact Us
          <input type='radio' name='answer' value='Not sure' />Not sure </br>
 
          <p class="pt-3">Any comments or suggestions to US?</p>
-         <textarea type='text' style="margin-left: 8px !important; margin-bottom: 2px !important;"
+         <textarea name="text" type='text' style="margin-left: 8px !important; margin-bottom: 2px !important;"
             placeholder='Enter your comment here...'></textarea>
       </div>
       <div class="center">

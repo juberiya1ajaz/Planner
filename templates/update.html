@@ -3,12 +3,12 @@
 Updating a task
 {% endblock %}
 {% block main %}
-<h2>Updating a Task</h2>
-<div class="task">
+<div class="update">
+    {% for task in task %}
+    <h2>Updating a Task</h2>
     <div class="section">
         <div class="form-group, mt-4 mb-3">
             <form action="/update/{{task.task_id}}" class="form" method="POST">
-                {% for task in task %}
 
                 <div class="pt-3">
                     <input autocomplete="off" autofocus class="form-control" autofocus name="sub" placeholder="Subject"
@@ -40,14 +40,42 @@ Updating a task
                         type="month" value="{{task.month}}">
                 </div>
 
-                {% endfor %}
+    
 
-                <button type="submit" class="btn btn-dark "
+                <button type="submit" class="btn btn-dark m-4 "
                     onclick="return confirm('Are You Sure Want To Update The Task?')">Update</button>
             </form>
         </div>
     </div>
+    {% endfor %}
 </div>
+<style>
+    h2{
+    
+        color:rgb(70, 70, 70,0.7);
+        font-size: 30px;
+    }
+    body 
+{
+    width:100%;
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-color:rgb(197, 221, 238);
+}
 
+.update
+{
+    text-align:center!important;
+  color: rgb(75, 75, 75);
+  margin: auto !important;
+  width: 400px;
+  height: 100%;
+  margin: auto;
+  padding: 20px;
+  background-color:rgb(227, 242, 253 ,0.4) ;
+}
+
+</style>
 
 {% endblock %}
