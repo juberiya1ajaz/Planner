@@ -1,4 +1,3 @@
-import os
 from flask import redirect, render_template, request, session
 from functools import wraps
 
@@ -15,7 +14,7 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 def apology(message, code=400):
-    """Render message as an apology to user."""
+    """Render message as an apology to user"""
     def escape(s):
         """
         Escape special characters.
