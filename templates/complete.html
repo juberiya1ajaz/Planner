@@ -10,7 +10,7 @@ completed
     <table>
         <thead>
             <tr>
-                
+                <th>Subject</th>
                 <th>Task</th>
                 <th>Day</th>
                 <th>Task time</th>
@@ -22,7 +22,7 @@ completed
 
             {% for task in tasks %}
             <tr>
-               
+                <td>{{ task['subject'] }}</td>
                 <td>{{ task['task']}}</td>
                 <td>{{ task['day'] }}</td>
                 <td>{{task.date}}/{{task.month}}</td>
