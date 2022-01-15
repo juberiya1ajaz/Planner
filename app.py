@@ -30,16 +30,17 @@ db = SQL("sqlite:///planner.db")
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    if not session.get("user_id"):
+        return render_template("index.html")
+    else:
+        user_id=session["user_id"]
+        print(user_id)
+        task = db.execute("SELECT * FROM task WHERE user_id = ?" , user_id )
+        print(task)
+        return render_template("index.html", task=task)
+      
 
-@app.route("/home")
-@login_required
-def home():
-    user_id=session["user_id"]
-    print(user_id)
-    task = db.execute("SELECT * FROM task WHERE user_id = ?" , user_id )
-    print(task)
-    return render_template("home.html", task=task)
+
     
 
 @app.route("/contact", methods=["GET", "POST"])
@@ -72,7 +73,7 @@ def login():
         session["username"] = user[0]["username"]
 
         # Redirect user to home page
-        return render_template("home.html")
+        return redirect("/")
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:
@@ -113,7 +114,7 @@ def register():
         user = db.execute("SELECT username FROM users WHERE id = ?",session["user_id"] )
         session["username"] = user[0]["username"]
         
-        return redirect("/home")
+        return redirect("/")
     else:
         return render_template("register.html")
 
@@ -145,9 +146,9 @@ def  task():
         task = request.form.get("task")
         date = request.form.get("date")
         priority = request.form.get("priority")
-        db.execute("INSERT INTO task (subject,day,month,task,date,priority,type,user_id) VALUES(?, ?, ?,?,?,? ,?,?)", 
+        task=db.execute("INSERT INTO task (subject,day,month,task,date,priority,type,user_id) VALUES(?, ?, ?,?,?,? ,?,?)", 
         subject,day,month,task,date,priority,"add",user_id)
-        return render_template("home.html")
+        return redirect("/")
 
     else:
         return render_template("task.html")
