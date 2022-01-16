@@ -3,14 +3,15 @@
 #### <h1>Description:<h1>
 <p> A beautiful planner with many features for your daily works with user authentication and voila you can even print your task.</p>
 <h2>Environment:</h2>
+ <p>
 <li>Python
 <li>Flask
 <li>bootstrap
 <li>HTML and CSS
 <li>JavaScript
-
+  </p>
 <h2>Introduction</h2>
-The features of this project:<br>
+<p>The features of this project:<br>
 <ol>
 <li>Beautiful UI/UX with the help of css animations and bootstrap cards.
 <li>contains two dynamic mode i.e light and dark with the help of JavaScipt.
@@ -25,3 +26,5 @@ The features of this project:<br>
 <li>User can update their task as well.
 <li>implementation of LogIn in such a way that  it checks whether a username is unavailable or not and whether password match or not.
 <li>Deletion of user account in such a way that  it checks whether a it is current user or not and whether password match or not.
+  </p>
+ 
