@@ -123,20 +123,24 @@ def register():
         username = request.form.get("username")
         password=request.form.get("password")
         c_password=request.form.get("confirmation")
+
         #show apology if some error was occured
         if not username:
             return apology("must provide username",400)
         elif not password or not  c_password :
             return apology("must provide password" ,400)
-        #implemented the regex's function with the help  of stackoverflow
+        elif len(username) < 6:
+            return apology("Make sure your username is at least 6 letters",400)
         elif len(password) < 8:
-            return apology("Make sure your password is at lest 8 letters",400)
+            return apology("Make sure your password is at least 8 letters",400)
+           
+        #implemented the regex's function with the help  of stackoverflow
         elif re.search('[0-9]',password) is None:
             return apology("Make sure your password has a number in it",400)
         elif re.search('[A-Z]',password) is None:
             return apology("Make sure your password has a capital letter in it",400)
         elif re.search('[!, @ , #, $]',password) is None:
-            return apology("Make sure your password has a special character !, @ , #, $ in it",400)
+            return apology("Make sure your password has a special character [!, @ , #, $ in it]",400)
 
 
         #MAKE SURE BOTH PASSWORD MATCH
@@ -147,12 +151,15 @@ def register():
         rows = db.execute("SELECT * FROM users WHERE username = :username", username=request.form.get("username"))
         if len(rows) >= 1:
             return apology("username already exists" , 400)
+            
         # Start session
         db.execute("INSERT INTO users (username, hash) VALUES (:username, :hash)",username=request.form.get("username"),
                              hash=generate_password_hash(request.form.get("password")))
 
         rows = db.execute("SELECT id FROM users WHERE username = ?", username)
         session["user_id"] = rows[0]["id"]
+
+        #Storing current username
         user = db.execute("SELECT username FROM users WHERE id = ?",session["user_id"] )
         session["username"] = user[0]["username"]
 
@@ -212,6 +219,8 @@ def  task():
             return apology("Please provide day date and month", 403)
         elif not priority:
             return apology("Please select priority ", 403)
+        elif len(task) <8:
+            return apology("Make sure your task is at lest 8 letters",400)
 
         #Inserting data to database
         task=db.execute("INSERT INTO task (subject,day,month,task,date,priority,type,user_id) VALUES(?, ?, ?,?,?,? ,?,?)", 
