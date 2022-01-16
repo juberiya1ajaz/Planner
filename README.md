@@ -1,6 +1,6 @@
 # Planner
 #### Video Demo:  <URL >
-#### Description:
+#### <h1>Description:<h1>
 <p> A beautiful planner with many features for your daily works with user authentication and voila you can even print your task.</p>
 <h2>Environment:</h2>
 <li>Python
