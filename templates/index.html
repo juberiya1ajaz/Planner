@@ -12,47 +12,50 @@ Home
                         <br>
                         <a href="/task"><button type="button" class="b2">Add Task</button></a>
                 </div>
-    
+
         </div>
-    </div>
+</div>
 <div class="section">
 
         <h2>All Task</h2>
-        <table>
-                <thead>
-                        <tr>
-    
-                                <th>Task</th>
-                                <th>Subject</th>
-                                <th>Priority</th>
-                                <th>Day</th>
-                                <th>Task time</th>
-                                <th>Action</th>
-                        </tr>
-                </thead>
-                <tbody>
-                        <!-- Loop through the database entries to display them in this table -->
-                        {% for task in task %}
-                        <tr>
-    
-                                <td>{{task.task}}</td>
-                                <td>{{task.subject}}</td>
-                                <td>{{task.priority}}</td>
-                                <td>{{task.day}}</td>
-                                <td>{{task.date}}/{{task.month}}</td>
-    
-                                <td>
-                                        <a href="/update/{{task.task_id}}" class="btn1">Update</a>
-                                        <a href="/complete" class="btn1">complete</a>
-                                        <a href="/delete/{{ task.task }}" class="btn2"
-                                                onclick="return confirm('Are You Sure For Delete?')">Delete</a>
-                                </td>
-                        </tr>
-                        {% endfor %}
-                </tbody>
-        </table>
-    </div>
- 
+        <div id="printTask">
+                <table>
+                        <thead>
+                                <tr>
+                                        <th>Subject</th>
+                                        <th>Task</th>
+                                        <th>Priority</th>
+                                        <th>Day</th>
+                                        <th>Task time</th>
+                                        <th>Action</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <!-- Loop through the database entries to display them in this table -->
+                                {% for task in task %}
+                                <tr>
+                                        <td>{{task.subject}}</td>
+                                        <td>{{task.task}}</td>
+                                        <td>{{task.priority}}</td>
+                                        <td>{{task.day}}</td>
+                                        <td>{{task.date}}/{{task.month}}</td>
+
+                                        <td>
+                                                <a href="/update/{{task.task_id}}" class="btn1">Update</a>
+                                                <a href="/delete/{{ task.task }}" class="btn2"
+                                                        onclick="return confirm('Are You Sure For Delete?')">Delete</a>
+                                        </td>
+                                </tr>
+                                {% endfor %}
+                        </tbody>
+                </table>
+
+        </div>
+        <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank">
+        </iframe>
+        <button class="btn btn-light  m-4" onclick="printTable()">Print Task</button>
+</div>
+
 
 {% else %}
 <div>
