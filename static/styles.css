@@ -145,8 +145,13 @@ table th,
 table td {
   padding: 0.75rem;
   vertical-align: middle;
+  font-family:Georgia;
+  text-transform: capitalize;
 }
-table:hover{background-color: #a5cceb;;
+table th{
+  font-size:larger;
+}
+table:hover{background-color: rgb(168, 206, 238,0.8);;
   opacity:0.82;
 
 }
