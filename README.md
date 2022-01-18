@@ -6,7 +6,7 @@
  <p>
 <li>Python
 <li>Flask
-<li>bootstrap
+<li>Botstrap
 <li>HTML and CSS
 <li>JavaScript
   </p>
