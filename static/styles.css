@@ -148,16 +148,20 @@ table td {
   font-family:Georgia;
   text-transform: capitalize;
 }
-table th{
+
+table th
+{
   font-size:larger;
 }
-table:hover{background-color: rgb(168, 206, 238,0.8);;
+table:hover
+{
+  background-color: rgb(168, 206, 238,0.8);
   opacity:0.82;
-
 }
 
 
-tbody tr:nth-of-type(odd) {
+tbody tr:nth-of-type(odd)
+{
   background-color: rgb(179, 208, 255, 0.3)
 }
 
