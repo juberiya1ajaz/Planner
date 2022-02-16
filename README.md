@@ -1,5 +1,6 @@
 # Planner
-#### Video Demo:  <URL >
+#### Video Demo:  <URL https://youtu.be/WbFHswjmY0k >
+[![Planner Website](https://img.youtube.com/vi/ZX5aYcg5F8o/0.jpg)](https://youtu.be/WbFHswjmY0k "Day Planner Website")
 #### Description:
 <p> A beautiful planner with many features for your daily works with user authentication and voila you can even print your task.</p>
 <h2>Environment:</h2>
