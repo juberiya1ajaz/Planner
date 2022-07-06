@@ -56,6 +56,7 @@ main
   padding: 20px;
   background-color:rgb(227, 242, 253 ,0.4) ;
 }
+/*BODY*/
 body 
 {
     width:100%;
@@ -123,7 +124,7 @@ input[type="text"]:hover, input[type="number"]:hover , input[type="month"]:hover
    font-family:Arial, Helvetica, sans-serif;
    text-align: left !important;
 }
-
+/*ANIMATION*/
 .w3-animate-left
 {
    animation-duration: 4s !important;
@@ -134,7 +135,9 @@ input[type="text"]:hover, input[type="number"]:hover , input[type="month"]:hover
    animation-iteration-count: 3 !important;
 
 }
-table {
+/*TBALE*/
+table
+{
   background-color: transparent;
   margin-bottom: 1rem;
   width: 100%;
@@ -164,7 +167,30 @@ tbody tr:nth-of-type(odd)
 {
   background-color: rgb(179, 208, 255, 0.3)
 }
+/*CARD*/
+.card
+{
+  padding:20px;
+  background-color: rgb(170, 207, 233,0.7);
+}
+.card-title
+{
+  font-weight: bold;
+  font-style: italic;
+}
+.card-text,.card
+{
+  color: rgb(37, 37, 37,0.5);
+}
 
+.b1{
+  background-color: rgba(26, 41, 51, 0.5);
+  color:white
+}
+.b1:hover{color:black;
+  background-color:  rgb(146, 193, 227);
+}
+/**/
 #a1:hover, #planner:hover
 {
     border-bottom: 2px solid rgb(0,0,0,0.6);
@@ -175,7 +201,7 @@ select
     margin-left: 18px !important; 
 }
 
-
+/*CONTACT*/
 .contact
 {
     padding-top: 4px;
@@ -189,7 +215,7 @@ select
     border: 1px solid  #a5cceb;
     margin: auto;
 }
-
+/*Animation*/
 @media(min-width: 300px)
 {
 .div1
