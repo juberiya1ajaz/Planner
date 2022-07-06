@@ -15,48 +15,46 @@ Home
 
         </div>
 </div>
-<div class="section">
-
-        <h2>All Task</h2>
-        <div id="printTask">
-                <table>
-                        <thead>
-                                <tr>
-                                        <th>Subject</th>
-                                        <th>Task</th>
-                                        <th>Priority</th>
-                                        <th>Day</th>
-                                        <th>Task time</th>
-                                        <th>Action</th>
-                                </tr>
-                        </thead>
-                        <tbody>
-                                <!-- Loop through the database entries to display them in this table -->
-                                {% for task in task %}
-                                <tr>
-                                        <td>{{task.subject}}</td>
-                                        <td>{{task.task}}</td>
-                                        <td>{{task.priority}}</td>
-                                        <td>{{task.day}}</td>
-                                        <td>{{task.date}}/{{task.month}}</td>
-
-                                        <td>
-                                                <a href="/update/{{task.task_id}}" class="btn1">Update</a>
-                                                <a href="/delete/{{ task.task }}" class="btn2"
-                                                        onclick="return confirm('Are You Sure For Delete?')">Delete</a>
-                                        </td>
-                                </tr>
-                                {% endfor %}
-                        </tbody>
-                </table>
-
+<div class="row m-4">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"> How to increase Productivity</h5>
+              <p class="card-text">Know how tp get best of this website and increase productivity</p>
+              <a href="https://capital-placement.com/blog/the-top-10-productivity-tips-for-students-in-2022/" class="btn b1">Click Here</a>
+            </div>
+          </div>
         </div>
-        <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank">
-        </iframe>
-        <button class="btn btn-light  m-4" onclick="printTable()">Print Task</button>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Time management</h5>
+              <p class="card-text"> how to manage your time properly?</p>
+              <a href="https://corporatefinanceinstitute.com/resources/careers/soft-skills/time-management-list-tips/" class="btn b1">Click Here</a>
+            </div>
+          </div>
+        </div>
 </div>
-
-
+<div class="row m-4">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Mental Health</h5>
+              <p class="card-text">What is mental health</p>
+              <a href="https://www.medicalnewstoday.com/articles/154543" class="btn b1">Click Here</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Taking care of health</h5>
+              <p class="card-text"> Taking care of your meantal health</p>
+              <a href="https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health" class="btn b1">Click Here</a>
+            </div>
+          </div>
+        </div>
+</div>
 {% else %}
 <div>
         <div class="home">
