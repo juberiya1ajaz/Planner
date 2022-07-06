@@ -32,46 +32,20 @@ db = SQL("sqlite:///planner.db")
 
 @app.route('/')
 def index():
-
-    """Showing the task"""
-    if not session.get("user_id"):
+    # Redirect user to home page
         return render_template("index.html")
-    
-    else:
+
+#Showing list of task 
+@app.route('/showtask')
+def showtask():    
+     if not session.get("user_id"):
+        return render_template("index.html")
+     else:
         user_id=session["user_id"]
         # Query database for table task
 
         task = db.execute("SELECT * FROM task WHERE user_id = ?" , user_id )
-        return render_template("index.html", task=task)
-      
-
-@app.route("/contact", methods=["GET", "POST"])
-def contact():
-    if request.method == "POST":
-        first_name= request.form.get("f_name")
-        last_name= request.form.get("l_name")
-        user = request.form.get("user")
-        role = request.form.get("role")
-        message = request.form['text']
-
-        # Ensure username was submitted
-        if not first_name or not last_name :
-            return apology("Please provide your name", 403)
-
-        # Ensure necessary data was submitted
-        elif not user:
-            return apology("please provide data", 403)
-        elif not role:
-            return apology("please provide current role", 403)
-        elif not message:
-            return apology("please provide some comments", 403)
-
-
-        # Redirect user to home page
-        return redirect("/")
-
-    else:
-        return render_template("contact.html")
+        return render_template("tasklist.html", task=task)     
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -147,27 +121,7 @@ def register():
         elif  password !=  c_password:
             return apology("both password  must match", 400)
 
-    
-        rows = db.execute("SELECT * FROM users WHERE username = :username", username=request.form.get("username"))
-        if len(rows) >= 1:
-            return apology("username already exists" , 400)
-            
-        # Start session
-        db.execute("INSERT INTO users (username, hash) VALUES (:username, :hash)",username=request.form.get("username"),
-                             hash=generate_password_hash(request.form.get("password")))
-
-        rows = db.execute("SELECT id FROM users WHERE username = ?", username)
-        session["user_id"] = rows[0]["id"]
-
-        #Storing current username
-        user = db.execute("SELECT username FROM users WHERE id = ?",session["user_id"] )
-        session["username"] = user[0]["username"]
-
-        # Redirect user to home page
-        return redirect("/")
-    else:
-        return render_template("register.html")
-
+        
 @app.route("/delete" , methods=["GET", "POST"])
 @login_required
 def delete():
@@ -195,7 +149,35 @@ def delete():
     else:
         return render_template("delete.html")
 
-   
+@app.route("/contact", methods=["GET", "POST"])
+def contact():
+    if request.method == "POST":
+        first_name= request.form.get("f_name")
+        last_name= request.form.get("l_name")
+        user = request.form.get("user")
+        role = request.form.get("role")
+        message = request.form['text']
+
+        # Ensure username was submitted
+        if not first_name or not last_name :
+            return apology("Please provide your name", 403)
+
+        # Ensure necessary data was submitted
+        elif not user:
+            return apology("please provide data", 403)
+        elif not role:
+            return apology("please provide current role", 403)
+        elif not message:
+            return apology("please provide some comments", 403)
+
+
+        # Redirect user to home page
+        return redirect("/")
+
+    else:
+        return render_template("contact.html")
+
+  
 @app.route("/task", methods=["GET", "POST"])  
 @login_required
 def  task():
@@ -250,7 +232,7 @@ def update(task_id):
         subject,day,month,task,date,priority,str(task_id))
         
         # Redirect user to home page
-        return redirect(url_for("index"))
+        return redirect(url_for("showtask"))
     
     else:
          return render_template("update.html", task=task)
@@ -263,7 +245,7 @@ def delete_task(task):
 
     # Redirect user to home page
     return redirect(url_for("index"))
- 
 
+    
 if __name__=="__main__":
     app.run(debug=True)
