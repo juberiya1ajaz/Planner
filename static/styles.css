@@ -295,12 +295,12 @@ select
   { 
     overflow: hidden;
     background: linear-gradient(90deg, #000, rgb(69, 142, 202), #000);
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     background-repeat: no-repeat;
-    animation: shine 20s 70ms linear infinite;
+    animation: shine 15s 70ms linear infinite;
     position: relative;
     background-size: 80%;
   }
@@ -309,11 +309,11 @@ select
 {
   0%
    {
-    background-position-x: -300%;
+    background-position-x: -400%;
    }
   100%
    {
-    background-position-x: 300%;
+    background-position-x: 600%;
    }
 }
 
