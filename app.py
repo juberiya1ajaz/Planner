@@ -120,7 +120,7 @@ def register():
         #MAKE SURE BOTH PASSWORD MATCH
         elif  password !=  c_password:
             return apology("both password  must match", 400)
-
+    return render_template("register.html")
         
 @app.route("/delete" , methods=["GET", "POST"])
 @login_required
