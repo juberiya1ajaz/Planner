@@ -19,7 +19,7 @@
 <li>implementation of LogIn in such a way that  it checks whether a username is unavailable or not and whether password match or not.
 <li>Deletion of user account in such a way that  it checks whether a it is current user or not and whether password match or not.le.
 
-## ⚙️ How we built it
+## ⚙️ How I built it
 
 - Python : For backend
 - Flask : For backend
